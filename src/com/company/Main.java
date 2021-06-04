@@ -1,19 +1,31 @@
 package com.company;
-
+import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+    // Menu.
+        int menuControl=0;
+        Scanner scan= new Scanner(System.in);
+        Program[] programas;
+        int tempProgramQty;
+        while (menuControl!=7) {
+            System.out.println("Menu");
+            System.out.println("1. Ingresar cantidad de Programas");
+            System.out.println("2. Crear Programa");
+            System.out.println("7. Salir");
+            menuControl= scan.nextInt();
 
-        Program miprograma = new Program();
+            if (menuControl==1)
+            {
+                System.out.println("Ingrese la cantidad de prgramas");
+                tempProgramQty= scan.nextInt();
+                programas =  new Program[tempProgramQty];
+                //System.out.println(programas.length);
+            }
+        }
 
-        //miprograma.name="Chrome";
-        miprograma.setName("Chrome");
-        miprograma.setUser("Developer-user");
-        miprograma.setMemorySize(1232.12);
 
 
-        //System.out.println("El nombre del programa es: "+miprograma.name);
-        System.out.println("El nombre del programa es: "+miprograma.getName());
     }
 }
