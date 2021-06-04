@@ -7,8 +7,13 @@ public class Main {
     // Menu.
         int menuControl=0;
         Scanner scan= new Scanner(System.in);
-        Program[] programas;
+        Program[] programas =new Program[0];
         int tempProgramQty;
+        String tempProgramName;
+        String tempProgramUser;
+        double tempProgramSize;
+        Program tempProgram;
+        int programsCreated=0;
         while (menuControl!=7) {
             System.out.println("Menu");
             System.out.println("1. Ingresar cantidad de Programas");
@@ -21,6 +26,24 @@ public class Main {
                 System.out.println("Ingrese la cantidad de prgramas");
                 tempProgramQty= scan.nextInt();
                 programas =  new Program[tempProgramQty];
+                //System.out.println(programas.length);
+            }
+            if (menuControl==2)
+            {
+                System.out.println("Ingrese el nombre del programa");
+                tempProgramName= scan.next();
+                System.out.println("Ingrese el nombre del usuario");
+                tempProgramUser= scan.next();
+                System.out.println("Ingrese el tamano");
+                tempProgramSize= scan.nextDouble();
+                tempProgram =  new Program();
+
+                tempProgram.setName(tempProgramName);
+                tempProgram.setUser(tempProgramUser);
+                tempProgram.setMemorySize(tempProgramSize);
+
+                programas[programsCreated]=tempProgram;
+                //programas =  new Program[tempProgramQty];
                 //System.out.println(programas.length);
             }
         }
