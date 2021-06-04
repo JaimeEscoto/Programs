@@ -9,8 +9,9 @@ public class Main {
 
         //miprograma.name="Chrome";
         miprograma.setName("Chrome");
-        miprograma.user="Developer-user";
-        miprograma.memorySize=1232.12;
+        miprograma.setUser("Developer-user");
+        miprograma.setMemorySize(1232.12);
+
 
         //System.out.println("El nombre del programa es: "+miprograma.name);
         System.out.println("El nombre del programa es: "+miprograma.getName());

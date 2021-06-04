@@ -4,8 +4,8 @@ import java.util.Locale;
 
 public class Program {
     private String name;
-    String user;
-    double memorySize;
+    private String user;
+    private double memorySize;
 
     public Program()
     {
@@ -18,8 +18,24 @@ public class Program {
         return name;
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public double getMemorySize() {
+        return memorySize;
+    }
+
     public void setName(String name) {
 
         this.name = name.toLowerCase();
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public void setMemorySize(double memorySize) {
+        this.memorySize = memorySize;
     }
 }
