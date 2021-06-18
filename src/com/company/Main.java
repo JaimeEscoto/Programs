@@ -2,51 +2,45 @@ package com.company;
 import java.util.Scanner;
 public class Main {
 
-    public static void main(String[] args) {
-	// write your code here
-    // Menu.
-        int menuControl=0;
-        Scanner scan= new Scanner(System.in);
-        Program[] programas =new Program[0];
-        int tempProgramQty;
-        String tempProgramName;
-        String tempProgramUser;
-        double tempProgramSize;
-        Program tempProgram;
-        int programsCreated=0;
-        while (menuControl!=7) {
-            System.out.println("Menu");
-            System.out.println("1. Ingresar cantidad de Programas");
-            System.out.println("2. Crear Programa");
-            System.out.println("7. Salir");
-            menuControl= scan.nextInt();
-
-            if (menuControl==1)
+    public static void printProgramas(Program[] programs)
+    {
+        int counter=0;
+        while (counter < programs.length)
+        {
+            if(programs[counter]!=null)
             {
-                System.out.println("Ingrese la cantidad de prgramas");
-                tempProgramQty= scan.nextInt();
-                programas =  new Program[tempProgramQty];
-                //System.out.println(programas.length);
+                System.out.println("Nombre "+programs[counter].getName());
+                System.out.println("Usuario "+programs[counter].getUser());
+                System.out.println("Size "+programs[counter].getMemorySize());
             }
-            if (menuControl==2)
-            {
-                System.out.println("Ingrese el nombre del programa");
-                tempProgramName= scan.next();
-                System.out.println("Ingrese el nombre del usuario");
-                tempProgramUser= scan.next();
-                System.out.println("Ingrese el tamano");
-                tempProgramSize= scan.nextDouble();
-                tempProgram =  new Program();
 
-                tempProgram.setName(tempProgramName);
-                tempProgram.setUser(tempProgramUser);
-                tempProgram.setMemorySize(tempProgramSize);
-
-                programas[programsCreated]=tempProgram;
-                //programas =  new Program[tempProgramQty];
-                //System.out.println(programas.length);
-            }
+            counter++;
         }
+
+    }
+
+    public static void main(String[] args) {
+
+        Program miprograma = new Program();
+        miprograma.setName("Chrome");
+        miprograma.setUser("Jaime-usr");
+        miprograma.setMemorySize(20000);
+
+        TaskManager mitaskManager = new TaskManager();
+
+        mitaskManager.createProgram(miprograma);
+
+        mitaskManager.createProgram("MS Word","Jaime-usr",29100);
+
+        printProgramas(mitaskManager.getPrograms());
+        mitaskManager.quitProgram("chrome");
+        System.out.println("---------------");
+        printProgramas(mitaskManager.getPrograms());
+        mitaskManager.cloneProgram("MS Word");
+        System.out.println("---------------");
+        printProgramas(mitaskManager.getPrograms());
+
+
 
 
 
